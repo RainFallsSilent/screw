@@ -544,7 +544,7 @@ func (c *Screw) getOptionAndSet(arg string, index *int, numMinuses int) error {
 		}
 	}
 
-	if arg == "V" || arg == "version" {
+	if arg == "v" || arg == "version" {
 		if _, ok := c.shortAndLong[arg]; !ok {
 			c.showVersion()
 			return nil
@@ -596,8 +596,8 @@ func (c *Screw) genHelpMessage(h *Help) {
 		c.shortAndLong["h"] = &Option{usage: "print the help information", showShort: []string{"h"}, showLong: []string{"help"}}
 	}
 
-	if c.shortAndLong["V"] == nil && c.shortAndLong["version"] == nil {
-		c.shortAndLong["V"] = &Option{usage: "print version information", showShort: []string{"V"}, showLong: []string{"version"}}
+	if c.shortAndLong["v"] == nil && c.shortAndLong["version"] == nil {
+		c.shortAndLong["v"] = &Option{usage: "print version information", showShort: []string{"v"}, showLong: []string{"version"}}
 	}
 
 	saveHelp := func(options map[string]*Option) {
