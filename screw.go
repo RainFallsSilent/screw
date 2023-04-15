@@ -1101,8 +1101,10 @@ func MustRegister(x interface{}) {
 // Bind interface, including the following functions
 // Structure field registration
 // Command line parsing
-func Bind(x interface{}) error {
+func Bind(x interface{}, version string, about string) error {
 	CommandLine = New(os.Args[1:])
+	CommandLine.SetAbout(about)
+	CommandLine.SetVersion(version)
 	CommandLine.SetProcName(os.Args[0])
 	return CommandLine.Bind(x)
 }
